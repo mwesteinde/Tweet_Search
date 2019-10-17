@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/f19-ex9-mykalrudie.iml" filepath="$PROJECT_DIR$/.idea/f19-ex9-mykalrudie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/f19-ex9-mykalrudie.main.iml" filepath="$PROJECT_DIR$/.idea/modules/f19-ex9-mykalrudie.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/f19-ex9-mykalrudie.test.iml" filepath="$PROJECT_DIR$/.idea/modules/f19-ex9-mykalrudie.test.iml" />
+    </modules>
+  </component>
+</project>
