@@ -1,12 +1,10 @@
 package textsearch;
 
 import static org.junit.Assert.*;
-
 import java.util.Arrays;
-
 import org.junit.Test;
 
-public class TextSearchTest {
+public class GradingTests {
 
 	@Test
 	public void test1() {
@@ -72,4 +70,51 @@ public class TextSearchTest {
 		tHistory.add("#");
 		assertEquals("#", tHistory.getPopularHashtag());
 	}
+
+	@Test
+	public void test9() {
+		TweetHistory tHistory = new TweetHistory();
+		tHistory.add("#hello #hello #world");
+		assertEquals("#hello", tHistory.getPopularHashtag());
+		assertEquals(1, tHistory.getNumOccurrences("world"));
+	}
+
+	@Test
+	public void test10() {
+		TweetHistory tHistory = new TweetHistory();
+		tHistory.add("#hello #hello #world");
+		tHistory.add("the world is not #enough");
+		assertEquals("#hello", tHistory.getPopularHashtag());
+		assertEquals(2, tHistory.getNumOccurrences("world"));
+	}
+
+	@Test
+	public void test11() {
+		TweetHistory tHistory = new TweetHistory();
+		tHistory.add("#hello #hello #world");
+		tHistory.add("the world is not #enough");
+		tHistory.add("die another day #ok");
+		tHistory.add("the living daylights #world");
+		tHistory.add("goldfinger");
+		tHistory.add("casino royale #niven");
+		tHistory.add("casino royale #craig");
+		assertEquals(Arrays.asList("die another day #ok", "the living daylights #world"),
+				tHistory.getOccurrences("day"));
+		assertEquals(Arrays.asList(), tHistory.getOccurrences("bond"));
+	}
+
+	@Test
+	public void test12() {
+		TweetHistory tHistory = new TweetHistory();
+		tHistory.add("#hello #hello #world");
+		tHistory.add("the world is not #enough");
+		tHistory.add("die another day #ok");
+		tHistory.add("the living daylights #world");
+		tHistory.add("dr no");
+		tHistory.add("casino royale #niven");
+		tHistory.add("casino royale #craig");
+		tHistory.add("the #world is not #enough");
+		assertEquals("#world", tHistory.getPopularHashtag());
+	}
+
 }
